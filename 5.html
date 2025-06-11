@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профессиональное охранное агентство. Комплексные услуги безопасности: личная охрана, охрана объектов, видеонаблюдение. Работаем 24/7.">
+    <meta name="keywords" content="охранное агентство, личная охрана, охрана объектов, видеонаблюдение, безопасность, охранные услуги">
+    <title>Фортуна-Щит - Профессиональные охранные услуги</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #ff6b35;
+            --accent-hover: #e55a2b;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-top {
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            border-radius: 12px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            margin: 3px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #0f3460 100%);
+            color: var(--text-light);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/placeholder.svg?height=800&width=1400') center/cover;
+            opacity: 0.05;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-feature i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-shield {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .hero-shield::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse 3s ease-in-out infinite reverse;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--text-light);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-white);
+            padding: 80px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #ff8c42);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .service-features i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .advantages::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/placeholder.svg?height=600&width=1200') center/cover;
+            opacity: 0.05;
+        }
+
+        .advantages-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .advantage-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .advantage-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .team-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-light);
+        }
+
+        .team-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .team-position {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: var(--transition);
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Lead Form */
+        .lead-form {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 100px 0;
+            color: var(--text-light);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Services Detail Page */
+        .services-detail {
+            padding: 150px 0 100px;
+        }
+
+        .service-detail-card {
+            background: var(--bg-white);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .service-detail-card h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-detail-card h2 i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .service-detail-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-detail-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .service-detail-card li i {
+            color: var(--accent-color);
+        }
+
+        /* Contact Page */
+        .contact-info {
+            padding: 150px 0 100px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item p {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--bg-light), #e9ecef);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background: rgba(0,0,0,0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 2rem 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-shield {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .advantages-grid,
+            .team-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Success message */
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            display: none;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="showPage('home')">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    Фортуна-Щит
+                </a>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="#" onclick="showPage('services')"><i class="fas fa-shield-alt"></i> Услуги</a></li>
+                        <li><a href="#" onclick="showPage('contact')"><i class="fas fa-phone"></i> Контакты</a></li>
+                    </ul>
+                    <div class="mobile-menu" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-particles">
+                <div class="particle" style="top: 20%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+                <div class="particle" style="top: 60%; left: 80%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+                <div class="particle" style="top: 30%; left: 70%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+                <div class="particle" style="top: 80%; left: 20%; width: 5px; height: 5px; animation-delay: 1s;"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text animate-on-scroll">
+                        <h1>Охранные услуги с выгодными ценами и опытным персоналом</h1>
+                        <p class="subtitle">Профессиональная защита вашего бизнеса, имущества и личной безопасности. Современные технологии и проверенные специалисты.</p>
+                        <div class="hero-features">
+                            <div class="hero-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Лицензированы</span>
+                            </div>
+                            <div class="hero-feature">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 поддержка</span>
+                            </div>
+                            <div class="hero-feature">
+                                <i class="fas fa-award"></i>
+                                <span>15+ лет опыта</span>
+                            </div>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="#" class="cta-button" onclick="scrollToForm()">
+                                <i class="fas fa-phone"></i>
+                                Бесплатная консультация
+                            </a>
+                            <a href="#" class="cta-button secondary" onclick="showPage('services')">
+                                <i class="fas fa-list"></i>
+                                Наши услуги
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual animate-on-scroll">
+                        <div class="hero-shield">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-container animate-on-scroll">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0</span>
+                            <div class="stat-label">Довольных клиентов</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0</span>
+                            <div class="stat-label">Лет на рынке</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>
+                            <div class="stat-label">Сотрудников</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="24">0</span>
+                            <div class="stat-label">Часа в сутки</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Наши ключевые услуги</h2>
+                    <p class="section-subtitle">Комплексные решения безопасности для физических и юридических лиц</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Личная охрана</h3>
+                        <p>Профессиональная защита VIP-персон, руководителей и их семей</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Персональная охрана</li>
+                            <li><i class="fas fa-check"></i> Сопровождение мероприятий</li>
+                            <li><i class="fas fa-check"></i> Анализ угроз</li>
+                            <li><i class="fas fa-check"></i> Планирование маршрутов</li>
+                        </ul>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Охрана объектов</h3>
+                        <p>Комплексная защита коммерческих и промышленных объектов</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Физическая охрана</li>
+                            <li><i class="fas fa-check"></i> Контроль доступа</li>
+                            <li><i class="fas fa-check"></i> Патрулирование</li>
+                            <li><i class="fas fa-check"></i> Пропускной режим</li>
+                        </ul>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Видеонаблюдение</h3>
+                        <p>Современные системы видеонаблюдения и мониторинга</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Установка камер</li>
+                            <li><i class="fas fa-check"></i> Удаленный мониторинг</li>
+                            <li><i class="fas fa-check"></i> Архивирование записей</li>
+                            <li><i class="fas fa-check"></i> Аналитика видео</li>
+                        </ul>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Сопровождение грузов</h3>
+                        <p>Безопасная транспортировка ценных грузов и документов</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Инкассация</li>
+                            <li><i class="fas fa-check"></i> Перевозка ценностей</li>
+                            <li><i class="fas fa-check"></i> Сопровождение автотранспорта</li>
+                            <li><i class="fas fa-check"></i> GPS-мониторинг</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <div class="advantages-content">
+                <div class="container">
+                    <div class="section-header animate-on-scroll">
+                        <h2 class="section-title">О компании</h2>
+                        <p class="section-subtitle">С нами удобно, выгодно и надежно. Многие услуги предлагаются "под ключ"</p>
+                    </div>
+                    <div class="advantages-grid">
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3>Высокий уровень сервиса</h3>
+                            <p>Премиальное качество охранных услуг с вниманием к деталям</p>
+                        </div>
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Качественное оборудование</h3>
+                            <p>Современные технологии безопасности и профессиональное оборудование</p>
+                        </div>
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Большое количество услуг</h3>
+                            <p>Комплексные решения безопасности для всех ваших потребностей</p>
+                        </div>
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Профессионализм сотрудников</h3>
+                            <p>Высококвалифицированные и опытные специалисты по безопасности</p>
+                        </div>
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>Использование новейших технологий</h3>
+                            <p>Передовые системы безопасности и решения для мониторинга</p>
+                        </div>
+                        <div class="advantage-item animate-on-scroll">
+                            <div class="advantage-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Работаем 24/7</h3>
+                            <p>Круглосуточные услуги безопасности и экстренное реагирование</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Наша команда</h2>
+                    <p class="section-subtitle">Профессионалы с многолетним опытом в сфере безопасности</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-image">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Александр Петров</h3>
+                            <p class="team-position">Директор по безопасности</p>
+                            <p class="team-description">15 лет опыта в сфере безопасности, бывший сотрудник спецслужб</p>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-image">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Михаил Иванов</h3>
+                            <p class="team-position">Начальник охраны</p>
+                            <p class="team-description">Специалист по физической защите объектов и личной охране</p>
+                        </div>
+                    </div>
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-image">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Елена Сидорова</h3>
+                            <p class="team-position">Технический директор</p>
+                            <p class="team-description">Эксперт по системам видеонаблюдения и техническим средствам охраны</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Отзывы клиентов</h2>
+                    <p class="section-subtitle">Что говорят о нас наши клиенты</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">Очень радует, что есть люди профессионалы своего дела. Которые мгновенно решают все вопросы и задачи. Благодарна всему коллективу за понимание и оперативность. Успехов, развития и процветания Вашей компании!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">АГ</div>
+                            <div class="author-info">
+                                <h4>Анастасия Гребенникова</h4>
+                                <p>Директор ООО "Альфа"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">Отличная компания. Дисциплина, оперативность, четкость выполнения задач.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">СИ</div>
+                            <div class="author-info">
+                                <h4>Саша Иванова</h4>
+                                <p>Частный клиент</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">Отличная команда профессионалов. Уверенные расценки с высоким качеством сервиса.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ТТ</div>
+                            <div class="author-info">
+                                <h4>Тимур Тополь</h4>
+                                <p>ИП</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Часто задаваемые вопросы</h2>
+                    <p class="section-subtitle">Ответы на популярные вопросы о наших услугах</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Какие документы необходимы для заключения договора?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Для заключения договора необходимы: паспорт руководителя, учредительные документы организации, справка о постановке на налоговый учет.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Как быстро можете приступить к работе?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>После подписания договора мы можем приступить к работе в течение 24 часов. В экстренных случаях - в течение 2-4 часов.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Есть ли у вас лицензия на охранную деятельность?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, у нас есть все необходимые лицензии и разрешения для осуществления охранной деятельности. Все документы можно посмотреть в офисе.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Какова стоимость ваших услуг?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Стоимость зависит от типа услуг, объема работ и сложности объекта. Мы предлагаем индивидуальный расчет для каждого клиента.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-form" id="lead-form">
+            <div class="container">
+                <div class="form-container animate-on-scroll">
+                    <div class="section-header">
+                        <h2 class="section-title">Получите бесплатную консультацию</h2>
+                        <p class="section-subtitle">Оставьте заявку и наш специалист свяжется с вами в течение 15 минут</p>
+                    </div>
+                    <div class="success-message" id="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        Спасибо! Ваше сообщение отправлено успешно. Мы свяжемся с вами в ближайшее время.
+                    </div>
+                    <form id="leadForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Полное имя *</label>
+                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Номер телефона *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email адрес</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="service"><i class="fas fa-list"></i> Интересующая услуга</label>
+                            <select id="service" name="service">
+                                <option value="">Выберите услугу</option>
+                                <option value="personal">Личная охрана</option>
+                                <option value="facility">Охрана объектов</option>
+                                <option value="surveillance">Видеонаблюдение</option>
+                                <option value="transport">Сопровождение грузов</option>
+                                <option value="consulting">Консультации</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Сообщение</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Расскажите о ваших потребностях в безопасности..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Запросить консультацию
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <section class="services-detail">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h1 class="section-title">Наши охранные услуги</h1>
+                    <p class="section-subtitle">Полный спектр услуг физической вооруженной и невооруженной охраны</p>
+                </div>
+                
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-user-shield"></i> Услуги физической вооруженной и невооруженной охраны</h2>
+                    <p>Существует множество способов реализации подобного режима. Выбор того или иного варианта зависит как от предпочтений заказчика, так и от условий работы.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Контроль пропускного режима</li>
+                        <li><i class="fas fa-check"></i> Досмотр автотранспорта</li>
+                        <li><i class="fas fa-check"></i> Предотвращение краж "на рывок"</li>
+                        <li><i class="fas fa-check"></i> Обход объекта и прилегающей территории</li>
+                        <li><i class="fas fa-check"></i> Мониторинг системы видеонаблюдения</li>
+                        <li><i class="fas fa-check"></i> Слежение за посетителями, сотрудниками предприятий</li>
+                        <li><i class="fas fa-check"></i> Охрана материальных ценностей, находящихся в свободном доступе</li>
+                        <li><i class="fas fa-check"></i> Предотвращение несанкционированного доступа</li>
+                        <li><i class="fas fa-check"></i> Личная охрана</li>
+                        <li><i class="fas fa-check"></i> Организация КПП</li>
+                        <li><i class="fas fa-check"></i> ГБР</li>
+                        <li><i class="fas fa-check"></i> Сопровождение грузов</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-building"></i> Охрана коммерческих объектов</h2>
+                    <p>Профессиональная охрана торговых центров, офисных зданий, складских комплексов и производственных предприятий.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Физическая охрана периметра</li>
+                        <li><i class="fas fa-check"></i> Контроль доступа сотрудников и посетителей</li>
+                        <li><i class="fas fa-check"></i> Патрулирование территории</li>
+                        <li><i class="fas fa-check"></i> Работа с системами сигнализации</li>
+                        <li><i class="fas fa-check"></i> Документооборот и отчетность</li>
+                        <li><i class="fas fa-check"></i> Взаимодействие с правоохранительными органами</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-video"></i> Системы видеонаблюдения и мониторинга</h2>
+                    <p>Установка, настройка и обслуживание современных систем видеонаблюдения с возможностью удаленного мониторинга.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Проектирование системы видеонаблюдения</li>
+                        <li><i class="fas fa-check"></i> Установка IP-камер высокого разрешения</li>
+                        <li><i class="fas fa-check"></i> Настройка удаленного доступа</li>
+                        <li><i class="fas fa-check"></i> Интеграция с системами контроля доступа</li>
+                        <li><i class="fas fa-check"></i> Архивирование и хранение записей</li>
+                        <li><i class="fas fa-check"></i> Техническое обслуживание оборудования</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-truck"></i> Инкассация и сопровождение ценностей</h2>
+                    <p>Безопасная транспортировка денежных средств, ценных бумаг и других материальных ценностей.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Инкассация торговых точек</li>
+                        <li><i class="fas fa-check"></i> Перевозка крупных денежных сумм</li>
+                        <li><i class="fas fa-check"></i> Сопровождение ценных грузов</li>
+                        <li><i class="fas fa-check"></i> Обеспечение безопасности при банковских операциях</li>
+                        <li><i class="fas fa-check"></i> GPS-мониторинг транспорта</li>
+                        <li><i class="fas fa-check"></i> Страхование перевозимых ценностей</li>
+                        <li><i class="fas fa-check"></i> Экстренное реагирование</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-user-tie"></i> Личная охрана VIP-персон</h2>
+                    <p>Индивидуальная защита руководителей, публичных лиц и членов их семей с учетом специфики деятельности.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Персональная охрана руководителей</li>
+                        <li><i class="fas fa-check"></i> Сопровождение на мероприятиях</li>
+                        <li><i class="fas fa-check"></i> Обеспечение безопасности семьи</li>
+                        <li><i class="fas fa-check"></i> Планирование безопасных маршрутов</li>
+                        <li><i class="fas fa-check"></i> Анализ и оценка рисков</li>
+                        <li><i class="fas fa-check"></i> Конфиденциальность и дискретность</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card animate-on-scroll">
+                    <h2><i class="fas fa-clipboard-check"></i> Консультационные услуги</h2>
+                    <p>Экспертные консультации по вопросам безопасности и разработка индивидуальных решений.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Аудит безопасности объектов</li>
+                        <li><i class="fas fa-check"></i> Разработка концепции безопасности</li>
+                        <li><i class="fas fa-check"></i> Обучение персонала</li>
+                        <li><i class="fas fa-check"></i> Планирование эвакуации</li>
+                        <li><i class="fas fa-check"></i> Консультации по техническим средствам</li>
+                        <li><i class="fas fa-check"></i> Подготовка документации</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="contact-info">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h1 class="section-title">Контакты</h1>
+                    <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Телефон</h3>
+                        <p><strong>+7 (906) 238-76-71</strong></p>
+                        <p><strong>+7 (911) 457-90-26</strong></p>
+                        <p>Круглосуточная линия</p>
+                    </div>
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p><strong>fortuna-shield@mail.ru</strong></p>
+                        <p>info@fortuna-shield.ru</p>
+                        <p>Ответим в течение часа</p>
+                    </div>
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Адрес</h3>
+                        <p><strong>г. Калининград</strong></p>
+                        <p>пер. Малый, 17, офис 315</p>
+                        <p>Режим работы: 24/7</p>
+                    </div>
+                </div>
+
+                <div class="form-container animate-on-scroll">
+                    <div class="section-header">
+                        <h2>Отправьте нам сообщение</h2>
+                        <p class="section-subtitle">Мы ответим в течение 30 минут</p>
+                    </div>
+                    <div class="success-message" id="contact-success-message">
+                        <i class="fas fa-check-circle"></i>
+                        Спасибо! Ваше сообщение отправлено успешно. Мы свяжемся с вами в ближайшее время.
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contact-name"><i class="fas fa-user"></i> Полное имя *</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email"><i class="fas fa-envelope"></i> Email адрес *</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone"><i class="fas fa-phone"></i> Номер телефона</label>
+                            <input type="tel" id="contact-phone" name="phone" placeholder="+7 (___) ___-__-__">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject"><i class="fas fa-tag"></i> Тема</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Тема сообщения">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message"><i class="fas fa-comment"></i> Сообщение *</label>
+                            <textarea id="contact-message" name="message" rows="5" required placeholder="Опишите ваши потребности в охранных услугах..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+
+                <div class="map-container animate-on-scroll">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <p><strong>Интерактивная карта</strong><br>
+                        г. Калининград, пер. Малый, 17, офис 315<br>
+                        <small>(Здесь будет размещена интерактивная карта)</small></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-shield-alt"></i> Фортуна-Щит</h3>
+                    <p>Профессиональное охранное агентство с 15-летним опытом работы. Обеспечиваем безопасность физических и юридических лиц.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-viber"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-list"></i> Услуги</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('services')">Личная охрана</a></li>
+                        <li><a href="#" onclick="showPage('services')">Охрана объектов</a></li>
+                        <li><a href="#" onclick="showPage('services')">Видеонаблюдение</a></li>
+                        <li><a href="#" onclick="showPage('services')">Сопровождение грузов</a></li>
+                        <li><a href="#" onclick="showPage('services')">Консультации</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-phone"></i> Контакты</h3>
+                    <p><i class="fas fa-phone"></i> +7 (906) 238-76-71</p>
+                    <p><i class="fas fa-phone"></i> +7 (911) 457-90-26</p>
+                    <p><i class="fas fa-envelope"></i> fortuna-shield@mail.ru</p>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Калининград, пер. Малый, 17</p>
+                    <p><i class="fas fa-clock"></i> Работаем 24/7</p>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-certificate"></i> Документы</h3>
+                    <ul>
+                        <li><a href="#">Лицензия на охранную деятельность</a></li>
+                        <li><a href="#">Свидетельство о регистрации</a></li>
+                        <li><a href="#">Сертификаты качества</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Фортуна-Щит. Все права защищены. | Профессиональные охранные услуги в Калининграде</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.remove('active');
+            
+            window.scrollTo(0, 0);
+            
+            // Trigger animations for the new page
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        }
+
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        function scrollToForm() {
+            const leadForm = document.getElementById('lead-form');
+            if (leadForm) {
+                leadForm.scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+
+        // FAQ functionality
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                answer.classList.add('active');
+                button.classList.add('active');
+            }
+        }
+
+        // Form submission functionality
+        function submitForm(formId, successMessageId, emailSubject) {
+            const form = document.getElementById(formId);
+            const successMessage = document.getElementById(successMessageId);
+            
+            if (!form || !successMessage) return;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = '<div class="loading"></div> Отправка...';
+                submitButton.disabled = true;
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Create mailto link
+                const emailBody = Object.entries(data)
+                    .map(([key, value]) => `${key}: ${value}`)
+                    .join('\n');
+                
+                const mailtoLink = `mailto:fortuna-shield@mail.ru?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Simulate sending delay
+                setTimeout(() => {
+                    window.location.href = mailtoLink;
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    
+                    // Reset button
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1000);
+            });
+        }
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Phone number formatting
+        function formatPhoneNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.startsWith('7')) {
+                value = value.substring(1);
+            }
+            
+            if (value.length >= 10) {
+                value = value.substring(0, 10);
+                input.value = `+7 (${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6, 8)}-${value.substring(8, 10)}`;
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize form handlers
+            submitForm('leadForm', 'success-message', 'Заявка на бесплатную консультацию');
+            submitForm('contactForm', 'contact-success-message', 'Сообщение с сайта');
+            
+            // Initialize animations
+            animateOnScroll();
+            
+            // Animate counters when stats section is visible
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                });
+                statsObserver.observe(statsSection);
+            }
+            
+            // Phone number formatting
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', () => formatPhoneNumber(input));
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navMenu = document.getElementById('nav-menu');
+                
+                if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add floating particles animation
+        function createParticles() {
+            const hero = document.querySelector('.hero-particles');
+            if (!hero) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = (Math.random() * 4 + 2) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                hero.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        setTimeout(createParticles, 1000);
+    </script>
+</body>
+</html>
